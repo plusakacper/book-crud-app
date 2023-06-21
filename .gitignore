@@ -24,11 +24,6 @@ hs_err_pid*
 replay_pid*
 .classpath
 .project
-.settings/org.eclipse.core.resources.prefs
-.settings/org.eclipse.jdt.core.prefs
-.settings/org.eclipse.m2e.core.prefs
-.settings/org.springframework.ide.eclipse.prefs
-target/classes/application.yml
-target/classes/META-INF/MANIFEST.MF
-target/classes/META-INF/maven/pl.bookapp/book-crud-app/pom.properties
-target/classes/META-INF/maven/pl.bookapp/book-crud-app/pom.xml
+
+.settings/*
+target/*
