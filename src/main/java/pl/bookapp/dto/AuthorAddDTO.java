@@ -9,23 +9,14 @@ import jakarta.validation.constraints.Size;
 
 public class AuthorAddDTO {
 
-	@NotNull
-	private Long id;
 	@NotBlank
 	@Size(max = 255)
 	private String firstName;
+	@NotBlank
 	@Size(max = 255)
 	private String surname;
 	@NotNull
 	private LocalDate birthdate;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -53,7 +44,7 @@ public class AuthorAddDTO {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(birthdate, firstName, id, surname);
+		return Objects.hash(birthdate, firstName, surname);
 	}
 
 	@Override
@@ -66,13 +57,12 @@ public class AuthorAddDTO {
 			return false;
 		AuthorAddDTO other = (AuthorAddDTO) obj;
 		return Objects.equals(birthdate, other.birthdate) && Objects.equals(firstName, other.firstName)
-				&& Objects.equals(id, other.id) && Objects.equals(surname, other.surname);
+				&& Objects.equals(surname, other.surname);
 	}
 
 	@Override
 	public String toString() {
-		return "AuthorDTO [id=" + id + ", firstName=" + firstName + ", surname=" + surname + ", birthdate=" + birthdate
-				+ "]";
+		return "AuthorAddDTO [firstName=" + firstName + ", surname=" + surname + ", birthdate=" + birthdate + "]";
 	}
 
 }

@@ -28,3 +28,4 @@ replay_pid*
 .settings/*
 target/*
 data/db.mv.db
+data/db.trace.db

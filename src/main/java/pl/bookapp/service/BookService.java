@@ -53,7 +53,7 @@ public class BookService {
 		Book book = bookOpt.orElseThrow(() -> new BookException("Book not found"));
 		book.setTitle(bookDTO.getTitle());
 		book.setDescription(bookDTO.getDescription());
-		book.setCategory(book.getCategory());
+		book.setCategory(bookDTO.getCategory());
 		bookRepository.save(book);
 	}
 

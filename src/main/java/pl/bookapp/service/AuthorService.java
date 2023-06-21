@@ -53,6 +53,9 @@ public class AuthorService {
 	public void remove(Long id) throws AuthorException {
 		Optional<Author> authorOpt = authorRepository.findById(id);
 		Author author = authorOpt.orElseThrow(() -> new AuthorException("Author not found"));
+		if (!author.getBooks().isEmpty()) {
+			throw new AuthorException("Author cannot be deleted, related books exist");
+		}
 		authorRepository.delete(author);
 	}
 
