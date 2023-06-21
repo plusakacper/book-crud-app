@@ -3,11 +3,20 @@ package pl.bookapp.dto;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class AuthorDTO {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
+public class AuthorAddDTO {
+
+	@NotNull
 	private Long id;
+	@NotBlank
+	@Size(max = 255)
 	private String firstName;
+	@Size(max = 255)
 	private String surname;
+	@NotNull
 	private LocalDate birthdate;
 
 	public Long getId() {
@@ -55,7 +64,7 @@ public class AuthorDTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		AuthorDTO other = (AuthorDTO) obj;
+		AuthorAddDTO other = (AuthorAddDTO) obj;
 		return Objects.equals(birthdate, other.birthdate) && Objects.equals(firstName, other.firstName)
 				&& Objects.equals(id, other.id) && Objects.equals(surname, other.surname);
 	}

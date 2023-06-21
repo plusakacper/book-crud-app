@@ -31,8 +31,7 @@ public class Author {
 	public Author() {
 	}
 
-	public Author(Long id, String firstName, String surname, LocalDate birthdate) {
-		this.id = id;
+	public Author(String firstName, String surname, LocalDate birthdate) {
 		this.firstName = firstName;
 		this.surname = surname;
 		this.birthdate = birthdate;
