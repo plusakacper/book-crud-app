@@ -29,3 +29,8 @@ replay_pid*
 target/*
 data/db.mv.db
 data/db.trace.db
+src/test/java/pl/.DS_Store
+src/test/java/.DS_Store
+src/test/.DS_Store
+src/.DS_Store
+.DS_Store
