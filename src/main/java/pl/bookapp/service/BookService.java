@@ -48,12 +48,17 @@ public class BookService {
 		bookRepository.save(newBook);
 	}
 
-	public void update(BookUpdateDTO bookDTO) throws BookException {
+	public void update(BookUpdateDTO bookDTO) throws BookException, AuthorException {
 		Optional<Book> bookOpt = bookRepository.findById(bookDTO.getId());
 		Book book = bookOpt.orElseThrow(() -> new BookException("Book not found"));
+
+		Author author = authorRepository.findById(bookDTO.getAuthorId())
+				.orElseThrow(() -> new AuthorException("Author not found"));
+
 		book.setTitle(bookDTO.getTitle());
 		book.setDescription(bookDTO.getDescription());
 		book.setCategory(bookDTO.getCategory());
+		book.setAuthor(author);
 		bookRepository.save(book);
 	}
 

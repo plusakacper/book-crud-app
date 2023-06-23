@@ -18,6 +18,8 @@ public class BookUpdateDTO {
 	@NotBlank
 	@Size(max = 255)
 	private String category;
+	@NotNull
+	private Long authorId;
 
 	public Long getId() {
 		return id;
@@ -49,6 +51,14 @@ public class BookUpdateDTO {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public Long getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(Long authorId) {
+		this.authorId = authorId;
 	}
 
 	@Override

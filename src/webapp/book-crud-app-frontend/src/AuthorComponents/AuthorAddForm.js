@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import MainTemplate from './MainTemplate';
+import MainTemplate from '../MainTemplate';
 import { useContext, useState } from 'react';
 import { AuthorsContext } from './AuthorsProvider';
 import { useNavigate } from 'react-router-dom';

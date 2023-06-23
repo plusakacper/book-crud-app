@@ -48,7 +48,8 @@ public class BookController {
 	}
 
 	@PutMapping
-	public ResponseEntity<Void> update(@Valid @RequestBody BookUpdateDTO bookDTO) throws BookException {
+	public ResponseEntity<Void> update(@Valid @RequestBody BookUpdateDTO bookDTO)
+			throws BookException, AuthorException {
 		bookService.update(bookDTO);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

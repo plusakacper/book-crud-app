@@ -20,6 +20,7 @@ public class BookMapper {
 			bookDTO.setTitle(book.getTitle());
 			bookDTO.setDescription(book.getDescription());
 			bookDTO.setCategory(book.getCategory());
+			bookDTO.setAuthorId(book.getAuthor().getId());
 			bookDTO.setAuthorFirstName(book.getAuthor().getFirstName());
 			bookDTO.setAuthorSurname(book.getAuthor().getSurname());
 			return bookDTO;

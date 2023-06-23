@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import MainTemplate from './MainTemplate';
+import MainTemplate from '../MainTemplate';
 import { AuthorsContext } from './AuthorsProvider';
 import Spinner from 'react-bootstrap/Spinner';
 import AuthorsTable from './AuthorsTable';
