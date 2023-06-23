@@ -38,8 +38,8 @@ public class AuthorServiceTest {
 
 		when(authorRepository.findAll()).thenReturn(authors);
 
-		List<AuthorDTO> findedAuthors = authorService.getAll();
-		assertEquals(authors.size(), findedAuthors.size());
+		List<AuthorDTO> foundAuthors = authorService.getAll();
+		assertEquals(authors.size(), foundAuthors.size());
 	}
 
 	@Test
@@ -48,8 +48,8 @@ public class AuthorServiceTest {
 		author1.setId(1L);
 		when(authorRepository.findById(1L)).thenReturn(Optional.of(author1));
 
-		AuthorDTO findedAuthor = authorService.getById(1L);
-		assertEquals(author1.getId(), findedAuthor.getId());
+		AuthorDTO foundAuthors = authorService.getById(1L);
+		assertEquals(author1.getId(), foundAuthors.getId());
 	}
 
 }
