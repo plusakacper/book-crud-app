@@ -4,7 +4,7 @@ import AppNavbar from './AppNavbar';
 const MainTemplate = ({ children }) => (
 	<Container>
 		<AppNavbar />
-		{children}
+		<div className='wrapper'>{children}</div>
 	</Container>
 );
 
