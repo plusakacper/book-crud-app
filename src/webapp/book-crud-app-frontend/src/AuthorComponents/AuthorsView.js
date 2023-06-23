@@ -3,10 +3,10 @@ import MainTemplate from '../MainTemplate';
 import { AuthorsContext } from './AuthorsProvider';
 import Spinner from 'react-bootstrap/Spinner';
 import AuthorsTable from './AuthorsTable';
-import { Button } from 'react-bootstrap';
+import { Alert, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 const AuthorsView = () => {
-	const { authors, isLoading, fetchAuthors } = useContext(AuthorsContext);
+	const { authors, isLoading, fetchAuthors, error } = useContext(AuthorsContext);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -27,6 +27,7 @@ const AuthorsView = () => {
 					<AuthorsTable authors={authors} />
 				</>
 			)}
+			{error && <Alert variant='danger'>{error}</Alert>}
 		</MainTemplate>
 	);
 };

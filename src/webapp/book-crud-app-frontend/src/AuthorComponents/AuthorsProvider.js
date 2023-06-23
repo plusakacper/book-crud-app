@@ -9,13 +9,15 @@ export const AuthorsContext = React.createContext({
 	fetchAuthorById: () => {},
 	addAuthor: () => {},
 	updateAuthor: () => {},
-	removeAuthor: () => {}
+	removeAuthor: () => {},
+	error: ''
 });
 
 export const AuthorsProvider = ({ children }) => {
 	const [authors, setAuthors] = useState([]);
 	const [findedAuthor, setFindedAuthor] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState('');
 
 	useEffect(() => {
 		fetchAuthors();
@@ -31,6 +33,7 @@ export const AuthorsProvider = ({ children }) => {
 			const data = await response.data;
 			setAuthors(data);
 			setIsLoading(false);
+			// setError('');
 		} catch (err) {
 			console.log(err);
 		}
@@ -42,6 +45,7 @@ export const AuthorsProvider = ({ children }) => {
 			const data = await response.data;
 			setFindedAuthor(data);
 			setIsLoading(false);
+			setError('');
 		} catch (err) {
 			console.log(err);
 		}
@@ -51,6 +55,7 @@ export const AuthorsProvider = ({ children }) => {
 		try {
 			await axios.post('/authors', author);
 			setIsLoading(true);
+			setError('');
 		} catch (err) {
 			console.log(err);
 		}
@@ -60,6 +65,7 @@ export const AuthorsProvider = ({ children }) => {
 		try {
 			await axios.put('/authors', author);
 			setIsLoading(true);
+			setError('');
 		} catch (err) {
 			console.log(err);
 		}
@@ -69,8 +75,9 @@ export const AuthorsProvider = ({ children }) => {
 		try {
 			await axios.delete(`/authors/${id}`);
 			setIsLoading(true);
+			setError('');
 		} catch (err) {
-			console.log(err);
+			setError(err.response.data);
 		}
 	};
 
@@ -85,7 +92,8 @@ export const AuthorsProvider = ({ children }) => {
 				addAuthor,
 				fetchAuthors,
 				updateAuthor,
-				removeAuthor
+				removeAuthor,
+				error
 			}}>
 			{children}
 		</AuthorsContext.Provider>
